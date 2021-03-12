@@ -1,0 +1,4 @@
+appId: com.example.actualizaciones-electron
+publish:
+  provider: github
+  token: f20d8a07dbdd6f57005229d638667d5f7c8dc5a2
