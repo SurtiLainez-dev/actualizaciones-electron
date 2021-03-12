@@ -9,11 +9,39 @@
 			<a href="https://electronjs.org/" target="_blank" class="btn btn-secondary">Electron</a>
 			<a href="https://github.com/electron-userland/electron-builder" target="_blank" class="btn btn-secondary">Electron Builder</a>
 		</div>
+    {{version}} del sistema
+    <div id="notification" class="hidden"></div>
 	</section>
 </template>
 
 <script>
+import {ipcRenderer} from "electron";
+const notification = document.getElementById('notification');
 export default {
+  data(){
+    return{
+      version: '',
+      mensaja: ''
+    }
+  },
+  created(){
+    ipcRenderer.send('app_version');
+    ipcRenderer.on('app_version', (event, arg) => {
+      ipcRenderer.removeAllListeners('app_version');
+      this.version = arg.version
+    });
+
+    ipcRenderer.send('revisar_actualizacion');
+
+    ipcRenderer.on('update_available', () => {
+      ipcRenderer.removeAllListeners('update_available');
+      alert('hay una actualizacion nueva')
+      this.mensaja = 'A new update is available. Downloading now...';
+      notification.classList.remove('hidden');
+    });
+
+
+  }
 }
 </script>
 
@@ -27,5 +55,18 @@ export default {
 }
 .btn {
 	margin: 0 8px;
+}
+#notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.hidden {
+  display: none;
 }
 </style>

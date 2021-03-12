@@ -1,8 +1,8 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Nuxt + Electron",
-  "author": "surtilainez.notificaciones@gmail.com",
+  "author": "SurtiLainez-dev",
   "private": false,
   "main": "main.js",
   "build": {
@@ -11,11 +11,17 @@
       "buildResources": "static"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SurtiLainez-dev/actualizaciones-electron"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=DEV electron .",
-    "build": "nuxt build && electron-builder"
+    "build": "nuxt build && electron-builder build --win --publish never",
+    "deploy": "nuxt build && electron-builder build --win --publish always --config ./electron-builder.yml"
   },
   "dependencies": {
+    "electron-updater": "^4.3.8",
     "nuxt": "^1.4.0"
   },
   "devDependencies": {

@@ -25,7 +25,8 @@ console.log(`Nuxt working on ${_NUXT_URL_}`)
 ** Electron
 */
 let win = null // Current window
-const electron = require('electron')
+const electron = require('electron');
+const { autoUpdater } = require('electron-updater');
 const path = require('path')
 const app = electron.app
 const newWin = () => {
@@ -48,8 +49,26 @@ const newWin = () => {
 			}).on('error', pollServer)
 		}
 		pollServer()
-	} else { return win.loadURL(_NUXT_URL_) }
+	} else {
+		return win.loadURL(_NUXT_URL_)
+	}
 }
 app.on('ready', newWin)
 app.on('window-all-closed', () => app.quit())
 app.on('activate', () => win === null && newWin())
+electron.ipcMain.on('app_version', (event) => {
+	event.sender.send('app_version', { version: app.getVersion() });
+});
+
+electron.ipcMain.on('revisar_actualizacion', (e)=>{
+	autoUpdater.checkForUpdatesAndNotify();
+	console.log("Verificando si hay actualizaciones")
+})
+
+autoUpdater.on('update-available', () => {
+	win.webContents.send('update_available');
+	console.log("descargando actaulizacion")
+});
+autoUpdater.on('update-downloaded', () => {
+	win.webContents.send('update_downloaded');
+});
