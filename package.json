@@ -1,6 +1,6 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-dev",
   "private": false,
@@ -21,6 +21,7 @@
     "deploy": "nuxt build && electron-builder build --win --publish always --config ./electron-builder.yml"
   },
   "dependencies": {
+    "electron-log": "^4.3.2",
     "electron-updater": "^4.3.8",
     "nuxt": "^1.4.0"
   },

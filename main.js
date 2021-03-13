@@ -29,6 +29,7 @@ const electron = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path')
 const app = electron.app
+const log = require('electron-log');
 const newWin = () => {
 	win = new electron.BrowserWindow({
 		icon: path.join(__dirname, 'static/icon.png')
@@ -58,11 +59,13 @@ app.on('window-all-closed', () => app.quit())
 app.on('activate', () => win === null && newWin())
 electron.ipcMain.on('app_version', (event) => {
 	event.sender.send('app_version', { version: app.getVersion() });
+	log.info('version: '+app.getVersion())
 });
 
 electron.ipcMain.on('revisar_actualizacion', (e)=>{
+	log.info('verificando si hay actualizaciones1')
 	autoUpdater.checkForUpdatesAndNotify();
-	console.log("Verificando si hay actualizaciones")
+	log.info('verificando si hay actualizaciones2')
 })
 
 autoUpdater.on('update-available', () => {
