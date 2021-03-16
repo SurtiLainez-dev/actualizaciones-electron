@@ -34,12 +34,14 @@ const log = require('electron-log');
 function createdWindow (){
 	mainWindow = new electron.BrowserWindow({
 		icon: path.join(__dirname, 'static/icon.png'),
+		width: 800,
+		height: 600,
+		show: false,
 		webPreferences: {
 			nodeIntegration: true,
 		},
 	});
 
-	mainWindow.maximize();
 
 	if (config.dev) {
 		// Install vue dev tool and open chrome dev tools
@@ -62,9 +64,11 @@ function createdWindow (){
 	mainWindow.on('closed', () => mainWindow = null);
 
 	mainWindow.once('ready-to-show', () => {
+		console.log("entro")
 		log.info('verificando si hay actualizaciones1')
 		autoUpdater.checkForUpdatesAndNotify();
 		log.info('verificando si hay actualizaciones2')
+		mainWindow.show();
 	});
 
 }

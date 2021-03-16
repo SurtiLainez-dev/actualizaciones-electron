@@ -1,4 +1,4 @@
-appId: com.example.tilk
+appId: com.example.actializaciones-electron
 publish:
   provider: github
-  token: d3741797f2c5e5d34585cce26ad556f8179a3d2f
+  token: 4c398c7c755c6a753ee52d046da32ffa72563fc6
