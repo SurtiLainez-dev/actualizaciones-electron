@@ -1,17 +1,20 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
   "main": "main.js",
   "build": {
+    "nsis": {
+      "createStartMenuShortcut": true
+    },
     "appId": "",
     "directories": {
       "buildResources": "static"
     },
     "win": {
-      "target": "squirrel"
+      "target": "nsis"
     }
   },
   "repository": {
