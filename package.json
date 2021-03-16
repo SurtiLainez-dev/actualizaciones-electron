@@ -1,6 +1,6 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SurtiLainez-dev/actualizaciones-electron"
+    "url": "https://github.com/SurtiLainez-dev/actualizaciones-electron.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=DEV electron .",
