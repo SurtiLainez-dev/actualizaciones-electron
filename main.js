@@ -24,54 +24,67 @@ console.log(`Nuxt working on ${_NUXT_URL_}`)
 /*
 ** Electron
 */
-let win = null // Current window
+let mainWindow = null // Current window
 const electron = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path')
 const app = electron.app
 const log = require('electron-log');
-const newWin = () => {
-	win = new electron.BrowserWindow({
-		icon: path.join(__dirname, 'static/icon.png')
-	})
-	win.maximize()
-	win.on('closed', () => win = null)
+
+function createdWindow (){
+	mainWindow = new electron.BrowserWindow({
+		icon: path.join(__dirname, 'static/icon.png'),
+		webPreferences: {
+			nodeIntegration: true,
+		},
+	});
+
+	mainWindow.maximize();
+
 	if (config.dev) {
 		// Install vue dev tool and open chrome dev tools
 		const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer')
 		installExtension(VUEJS_DEVTOOLS.id).then(name => {
 			console.log(`Added Extension:  ${name}`)
-			win.webContents.openDevTools()
+			mainWindow.webContents.openDevTools()
 		}).catch(err => console.log('An error occurred: ', err))
 		// Wait for nuxt to build
 		const pollServer = () => {
 			http.get(_NUXT_URL_, (res) => {
-				if (res.statusCode === 200) { win.loadURL(_NUXT_URL_) } else { setTimeout(pollServer, 300) }
+				if (res.statusCode === 200) { mainWindow.loadURL(_NUXT_URL_) } else { setTimeout(pollServer, 300) }
 			}).on('error', pollServer)
 		}
 		pollServer()
 	} else {
-		return win.loadURL(_NUXT_URL_)
+		return mainWindow.loadURL(_NUXT_URL_)
 	}
+
+	mainWindow.on('closed', () => mainWindow = null);
+
+	mainWindow.once('ready-to-show', () => {
+		log.info('verificando si hay actualizaciones1')
+		autoUpdater.checkForUpdatesAndNotify();
+		log.info('verificando si hay actualizaciones2')
+	});
+
 }
-app.on('ready', newWin)
+
+app.on('ready', createdWindow)
 app.on('window-all-closed', () => app.quit())
-app.on('activate', () => win === null && newWin())
+app.on('activate', () => mainWindow === null && createdWindow())
+
+
 electron.ipcMain.on('app_version', (event) => {
 	event.sender.send('app_version', { version: app.getVersion() });
 	log.info('version: '+app.getVersion())
 });
 
-electron.ipcMain.on('revisar_actualizacion', (e)=>{
-	log.info('verificando si hay actualizaciones1')
-	autoUpdater.checkForUpdatesAndNotify();
-	log.info('verificando si hay actualizaciones2')
-})
-
 autoUpdater.on('update-available', () => {
-	win.webContents.send('update_available');
-	console.log("descargando actaulizacion")
+	mainWindow.webContents.send('update_available');
+	console.log("descargando actaulizacion");
+	log.info('Hay actializacion pendiente')
 });
 autoUpdater.on('update-downloaded', () => {
-	win.webContents.send('update_downloaded');
+	mainWindow.webContents.send('update_downloaded');
+	log.info('Se esta descargando la actualizacion')
 });

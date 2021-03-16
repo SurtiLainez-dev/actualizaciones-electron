@@ -31,7 +31,6 @@ export default {
       this.version = arg.version
     });
 
-    ipcRenderer.send('revisar_actualizacion');
 
     ipcRenderer.on('update_available', () => {
       ipcRenderer.removeAllListeners('update_available');
