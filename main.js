@@ -39,14 +39,6 @@ const newWin = () => {
 		},
 	});
 
-	require('update-electron-app')({
-		host: 'https://github.com/',
-		repo: 'SurtiLainez-dev/actualizaciones-electron',
-		updateInterval: '5 minutes',
-		logger: require('electron-log'),
-		notifyUser: true
-	})
-
 	win.maximize()
 	win.on('closed', () => win = null)
 	if (config.dev) {
@@ -64,6 +56,14 @@ const newWin = () => {
 		}
 		pollServer()
 	} else { return win.loadURL(_NUXT_URL_) }
+
+	require('update-electron-app')({
+		host: 'https://github.com/',
+		repo: 'SurtiLainez-dev/actualizaciones-electron',
+		updateInterval: '5 minutes',
+		logger: require('electron-log'),
+		notifyUser: true
+	})
 
 	win.on('closed', () => win = null);
 
