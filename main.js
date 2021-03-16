@@ -42,7 +42,6 @@ function createdWindow (){
 	});
 
 	require('update-electron-app')({
-		repo: 'SurtiLainez-dev/actualizaciones-electron',
 		updateInterval: '5 minutes',
 		logger: require('electron-log'),
 		notifyUser: true
