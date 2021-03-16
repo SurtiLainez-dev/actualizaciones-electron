@@ -59,7 +59,8 @@ function createdWindow (){
 				mainWindow.show();
 				console.log("entro")
 				log.info('verificando si hay actualizaciones1')
-				autoUpdater.checkForUpdatesAndNotify();
+				log.info(autoUpdater.checkForUpdatesAndNotify());
+				autoUpdater.checkForUpdatesAndNotify()
 				log.info('verificando si hay actualizaciones2')
 			});
 		}

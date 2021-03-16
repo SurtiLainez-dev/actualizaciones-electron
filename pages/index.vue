@@ -36,7 +36,6 @@ export default {
       ipcRenderer.removeAllListeners('update_available');
       alert('hay una actualizacion nueva')
       this.mensaja = 'A new update is available. Downloading now...';
-      notification.classList.remove('hidden');
     });
 
 
