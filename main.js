@@ -36,12 +36,17 @@ function createdWindow (){
 		icon: path.join(__dirname, 'static/icon.png'),
 		width: 800,
 		height: 600,
-		show: false,
 		webPreferences: {
 			nodeIntegration: true,
 		},
 	});
 
+	require('update-electron-app')({
+		repo: 'SurtiLainez-dev/actualizaciones-electron',
+		updateInterval: '5 minutes',
+		logger: require('electron-log'),
+		notifyUser: true
+	})
 
 	if (config.dev) {
 		// Install vue dev tool and open chrome dev tools
@@ -55,18 +60,18 @@ function createdWindow (){
 			http.get(_NUXT_URL_, (res) => {
 				if (res.statusCode === 200) { mainWindow.loadURL(_NUXT_URL_) } else { setTimeout(pollServer, 300) }
 			}).on('error', pollServer);
-			mainWindow.once('ready-to-show', () => {
-				mainWindow.show();
-				console.log("entro")
-				log.info('verificando si hay actualizaciones1')
-				log.info(autoUpdater.checkForUpdatesAndNotify());
-				autoUpdater.checkForUpdatesAndNotify()
-				log.info('verificando si hay actualizaciones2')
-			});
+			// mainWindow.once('ready-to-show', () => {
+			// 	mainWindow.show();
+			// 	console.log("entro")
+			// 	log.info('verificando si hay actualizaciones1')
+			// 	log.info(autoUpdater.checkForUpdatesAndNotify());
+			// 	autoUpdater.checkForUpdatesAndNotify()
+			// 	log.info('verificando si hay actualizaciones2')
+			// });
 		}
 		pollServer();
 	} else {
-		ready();
+		// ready();
 		return mainWindow.loadURL(_NUXT_URL_);
 	}
 

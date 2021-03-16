@@ -1,6 +1,6 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
@@ -23,7 +23,8 @@
   "dependencies": {
     "electron-log": "^4.3.2",
     "electron-updater": "^4.3.8",
-    "nuxt": "^1.4.0"
+    "nuxt": "^1.4.0",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
