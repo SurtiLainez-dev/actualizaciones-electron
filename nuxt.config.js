@@ -2,6 +2,13 @@ module.exports = {
 	mode: 'spa',
 	head: {title: 'actualizaciones-electron'}, // Headers of the page
 	loading: false, // Disable default loading bar
+	pluginOptions: {
+		electronBuilder: {
+			builderOptions: {
+				publish: ['github']
+			}
+		}
+	},
 	build: {
 		extend (config, { isDev, isClient }) {
 			if (isDev && isClient) {
