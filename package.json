@@ -1,8 +1,8 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Nuxt + Electron",
-  "author": "SurtiLainez-dev",
+  "author": "SurtiLainez-d ev",
   "private": false,
   "main": "main.js",
   "build": {
