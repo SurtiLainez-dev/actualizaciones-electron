@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36d75bf2-f527-4042-a986-2d57faae851d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron-builder.yml" beforeDir="false" afterPath="$PROJECT_DIR$/electron-builder.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615585906373</updated>
-      <workItem from="1615585907540" duration="18449000" />
+      <workItem from="1615585907540" duration="18955000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.2">
       <created>1615593176299</created>
@@ -166,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615919505313</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1.0.133">
+      <created>1615921074634</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1615921074634</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +191,7 @@
     <MESSAGE value="1.0.11" />
     <MESSAGE value="1.0.12" />
     <MESSAGE value="1.0.13" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.13" />
+    <MESSAGE value="1.0.133" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.133" />
   </component>
 </project>
