@@ -43,7 +43,7 @@
       <recent name="C:\Users\willy\WebstormProjects\actualizaciones-electron" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.deploy">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -79,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615585906373</updated>
-      <workItem from="1615585907540" duration="28429000" />
+      <workItem from="1615585907540" duration="29087000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.2">
       <created>1615593176299</created>
@@ -235,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615933115465</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="1.0.27">
+      <created>1615934074162</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1615934074162</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +270,7 @@
     <MESSAGE value="1.0.24" />
     <MESSAGE value="1.0.25" />
     <MESSAGE value="1.0.26" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.26" />
+    <MESSAGE value="1.0.27" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.27" />
   </component>
 </project>
