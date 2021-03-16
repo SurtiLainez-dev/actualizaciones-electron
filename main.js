@@ -75,6 +75,7 @@ function createdWindow (){
 
 function ready(){
 	mainWindow.once('ready-to-show', () => {
+		mainWindow.show();
 		console.log("entro")
 		log.info('verificando si hay actualizaciones1')
 		autoUpdater.checkForUpdatesAndNotify();
