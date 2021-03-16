@@ -32,12 +32,6 @@ export default {
     });
 
 
-    ipcRenderer.on('update_available', () => {
-      ipcRenderer.removeAllListeners('update_available');
-      alert('hay una actualizacion nueva')
-      this.mensaja = 'A new update is available. Downloading now...';
-    });
-
 
   }
 }

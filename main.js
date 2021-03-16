@@ -24,18 +24,16 @@ console.log(`Nuxt working on ${_NUXT_URL_}`)
 /*
 ** Electron
 */
-let mainWindow = null // Current window
+let win = null // Current window
 const electron = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path')
 const app = electron.app
 const log = require('electron-log');
 
-function createdWindow (){
-	mainWindow = new electron.BrowserWindow({
+const newWin = () => {
+	win = new electron.BrowserWindow({
 		icon: path.join(__dirname, 'static/icon.png'),
-		width: 800,
-		height: 600,
 		webPreferences: {
 			nodeIntegration: true,
 		},
@@ -49,50 +47,31 @@ function createdWindow (){
 		notifyUser: true
 	})
 
+	win.maximize()
+	win.on('closed', () => win = null)
 	if (config.dev) {
 		// Install vue dev tool and open chrome dev tools
 		const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer')
 		installExtension(VUEJS_DEVTOOLS.id).then(name => {
 			console.log(`Added Extension:  ${name}`)
-			mainWindow.webContents.openDevTools()
+			win.webContents.openDevTools()
 		}).catch(err => console.log('An error occurred: ', err))
 		// Wait for nuxt to build
 		const pollServer = () => {
 			http.get(_NUXT_URL_, (res) => {
-				if (res.statusCode === 200) { mainWindow.loadURL(_NUXT_URL_) } else { setTimeout(pollServer, 300) }
-			}).on('error', pollServer);
-			// mainWindow.once('ready-to-show', () => {
-			// 	mainWindow.show();
-			// 	console.log("entro")
-			// 	log.info('verificando si hay actualizaciones1')
-			// 	log.info(autoUpdater.checkForUpdatesAndNotify());
-			// 	autoUpdater.checkForUpdatesAndNotify()
-			// 	log.info('verificando si hay actualizaciones2')
-			// });
+				if (res.statusCode === 200) { win.loadURL(_NUXT_URL_) } else { setTimeout(pollServer, 300) }
+			}).on('error', pollServer)
 		}
-		pollServer();
-	} else {
-		// ready();
-		return mainWindow.loadURL(_NUXT_URL_);
-	}
+		pollServer()
+	} else { return win.loadURL(_NUXT_URL_) }
 
-	mainWindow.on('closed', () => mainWindow = null);
+	win.on('closed', () => win = null);
 
 }
 
-function ready(){
-	mainWindow.once('ready-to-show', () => {
-		mainWindow.show();
-		console.log("entro")
-		log.info('verificando si hay actualizaciones1')
-		autoUpdater.checkForUpdatesAndNotify();
-		log.info('verificando si hay actualizaciones2')
-	});
-}
-
-app.on('ready', createdWindow)
+app.on('ready', newWin)
 app.on('window-all-closed', () => app.quit())
-app.on('activate', () => mainWindow === null && createdWindow())
+app.on('activate', () => win === null && newWin())
 
 
 electron.ipcMain.on('app_version', (event) => {
@@ -100,11 +79,3 @@ electron.ipcMain.on('app_version', (event) => {
 	log.info('version: '+app.getVersion())
 });
 
-autoUpdater.on('update-available', () => {
-	log.info('Hay actializacion pendiente')
-	mainWindow.webContents.send('update_available');
-});
-autoUpdater.on('update-downloaded', () => {
-	log.info('Se esta descargando la actualizacion')
-	mainWindow.webContents.send('update_downloaded');
-});
