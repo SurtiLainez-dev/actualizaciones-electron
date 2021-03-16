@@ -54,23 +54,32 @@ function createdWindow (){
 		const pollServer = () => {
 			http.get(_NUXT_URL_, (res) => {
 				if (res.statusCode === 200) { mainWindow.loadURL(_NUXT_URL_) } else { setTimeout(pollServer, 300) }
-			}).on('error', pollServer)
+			}).on('error', pollServer);
+			mainWindow.once('ready-to-show', () => {
+				mainWindow.show();
+				console.log("entro")
+				log.info('verificando si hay actualizaciones1')
+				autoUpdater.checkForUpdatesAndNotify();
+				log.info('verificando si hay actualizaciones2')
+			});
 		}
-		pollServer()
+		pollServer();
 	} else {
-		return mainWindow.loadURL(_NUXT_URL_)
+		ready();
+		return mainWindow.loadURL(_NUXT_URL_);
 	}
 
 	mainWindow.on('closed', () => mainWindow = null);
 
+}
+
+function ready(){
 	mainWindow.once('ready-to-show', () => {
 		console.log("entro")
 		log.info('verificando si hay actualizaciones1')
 		autoUpdater.checkForUpdatesAndNotify();
 		log.info('verificando si hay actualizaciones2')
-		mainWindow.show();
 	});
-
 }
 
 app.on('ready', createdWindow)

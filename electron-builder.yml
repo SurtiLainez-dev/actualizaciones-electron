@@ -1,4 +1,4 @@
-appId: com.example.actializaciones-electron
+appId: com.example.actializaciones
 publish:
   provider: github
-  token: 4c398c7c755c6a753ee52d046da32ffa72563fc6
+  token: 78990dabe9434f0976e33136218b4c2e0851ddd7
