@@ -26,20 +26,25 @@ console.log(`Nuxt working on ${_NUXT_URL_}`)
 */
 let win = null // Current window
 const electron = require('electron');
-const { autoUpdater } = require('electron-updater');
 const path = require('path')
 const app = electron.app
 const log = require('electron-log');
 
 const newWin = () => {
 	win = new electron.BrowserWindow({
-		icon: path.join(__dirname, 'static/icon.png'),
-		webPreferences: {
-			nodeIntegration: true,
-		},
+		icon: path.join(__dirname, 'static/icon.png')
 	});
 
 	win.maximize()
+
+	require('update-electron-app')({
+		host: 'https://github.com/',
+		repo: 'SurtiLainez-dev/actualizaciones-electron',
+		updateInterval: '5 minutes',
+		logger: require('electron-log'),
+		notifyUser: true
+	})
+
 	win.on('closed', () => win = null)
 	if (config.dev) {
 		// Install vue dev tool and open chrome dev tools
@@ -56,14 +61,6 @@ const newWin = () => {
 		}
 		pollServer()
 	} else { return win.loadURL(_NUXT_URL_) }
-
-	require('update-electron-app')({
-		host: 'https://github.com/',
-		repo: 'SurtiLainez-dev/actualizaciones-electron',
-		updateInterval: '5 minutes',
-		logger: require('electron-log'),
-		notifyUser: true
-	})
 
 	win.on('closed', () => win = null);
 

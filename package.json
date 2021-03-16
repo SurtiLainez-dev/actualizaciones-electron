@@ -1,6 +1,6 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "electron": "^5.0.1",
+    "electron": "2.0.0-beta.7",
     "electron-builder": "^20.8.1",
     "electron-devtools-installer": "^2.2.3",
     "eslint": "^4.15.0",
