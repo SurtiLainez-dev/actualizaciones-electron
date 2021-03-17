@@ -1,17 +1,15 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
   "main": "main.js",
   "build": {
     "directories": {
-      "buildResources": "./build/"
+      "buildResources": "static"
     },
-    "appId": "",
-    "win": { "target": "squirrel" },
-    "squirrelWindows": { "msi": true, "target": "nsis" }
+    "appId": ""
   },
   "repository": {
     "type": "git",
@@ -24,6 +22,7 @@
   },
   "dependencies": {
     "electron-log": "^4.3.2",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.8",
     "nuxt": "^1.4.0",
     "update-electron-app": "^2.0.1"
@@ -33,6 +32,7 @@
     "electron": "2.0.0-beta.7",
     "electron-builder": "^20.8.1",
     "electron-devtools-installer": "^2.2.3",
+    "electron-winstaller": "^5.0.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",

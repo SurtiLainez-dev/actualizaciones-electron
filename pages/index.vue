@@ -11,6 +11,7 @@
 		</div>
     {{version}} del sistema
     <div id="notification" class="hidden"></div>
+    <button @click="check">Buscar update</button>
 	</section>
 </template>
 
@@ -30,9 +31,11 @@ export default {
       ipcRenderer.removeAllListeners('app_version');
       this.version = arg.version
     });
-
-
-
+  },
+  methods:{
+    check(){
+      ipcRenderer.send('check_updute');
+    }
   }
 }
 </script>
