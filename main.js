@@ -30,9 +30,9 @@ const path = require('path')
 const app = electron.app
 const log = require('electron-log');
 const {dialog} = require('electron');
-require('update-electron-app')()
-// const { autoUpdater } = require('electron-updater')
-// autoUpdater.autoDownload = false
+
+const { autoUpdater } = require('electron-updater')
+autoUpdater.autoDownload = false
 if(require('electron-squirrel-startup')) return;
 
 const newWin = () => {
@@ -42,13 +42,13 @@ const newWin = () => {
 
 	win.maximize()
 
-	// require('update-electron-app')({
-	// 	host: 'https://github.com/',
-	// 	repo: 'SurtiLainez-dev/actualizaciones-electron',
-	// 	updateInterval: '5 minutes',
-	// 	logger: require('electron-log'),
-	// 	notifyUser: true
-	// })
+	require('update-electron-app')({
+		host: 'https://github.com/',
+		repo: 'SurtiLainez-dev/actualizaciones-electron',
+		updateInterval: '5 minutes',
+		logger: require('electron-log'),
+		notifyUser: true
+	})
 
 	win.on('closed', () => win = null)
 	if (config.dev) {
@@ -81,13 +81,13 @@ electron.ipcMain.on('app_version', (event) => {
 	log.info('version: '+app.getVersion())
 });
 
-// autoUpdater.on('error', (error) => {
-// 	dialog.showErrorBox('Error: ', error == null ? "unknown" : (error.stack || error).toString())
-// })
+autoUpdater.on('error', (error) => {
+	dialog.showErrorBox('Error: ', error == null ? "unknown" : (error.stack || error).toString())
+})
 
-// electron.ipcMain.on('check_updute', ()=>{
-// 	console.log("entro");
-// 	log.info('entro a check1')
-// 	autoUpdater.checkForUpdates();
-// 	log.info('entro a check2')
-// });
+electron.ipcMain.on('check_updute', ()=>{
+	console.log("entro");
+	log.info('entro a check1')
+	autoUpdater.checkForUpdates();
+	log.info('entro a check2')
+});
