@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36d75bf2-f527-4042-a986-2d57faae851d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <updated>1615585906373</updated>
       <workItem from="1615585907540" duration="33037000" />
       <workItem from="1616002449637" duration="424000" />
-      <workItem from="1622150735761" duration="2405000" />
+      <workItem from="1622150735761" duration="3091000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.2">
       <created>1615593176299</created>
@@ -288,14 +289,20 @@
       <option name="project" value="LOCAL" />
       <updated>1622152391173</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="1.0.33">
+      <created>1622153408193</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1622153408193</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.0.5" />
     <MESSAGE value="1.0.6" />
     <MESSAGE value="1.0.7" />
     <MESSAGE value="1.0.8" />
@@ -320,6 +327,7 @@
     <MESSAGE value="1.0.30" />
     <MESSAGE value="1.0.31" />
     <MESSAGE value="1.0.32" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.32" />
+    <MESSAGE value="1.0.33" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.33" />
   </component>
 </project>
