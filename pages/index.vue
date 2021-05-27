@@ -34,7 +34,7 @@ export default {
   },
   methods:{
     check(){
-      ipcRenderer.send('check_updute');
+      // ipcRenderer.send('check_updute');
     }
   }
 }
