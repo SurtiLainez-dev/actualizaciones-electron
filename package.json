@@ -1,6 +1,6 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
@@ -18,23 +18,57 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=DEV electron .",
     "build": "nuxt build && electron-builder build --win --publish never",
-    "deploy": "nuxt build && electron-builder build --win --publish always --config ./electron-builder.yml"
+    "deploy": "nuxt build && electron-builder build --win --publish always --config ./electron-builder.yml",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "dependencies": {
     "electron-log": "^4.3.2",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.8",
-    "nuxt": "^1.4.0"
+    "nuxt": "^1.4.0",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
     "babel-eslint": "^8.2.1",
     "electron": "2.0.0-beta.7",
-    "electron-builder": "^20.8.1",
     "electron-devtools-installer": "^2.2.3",
-    "electron-winstaller": "^5.0.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "actualizaciones_electron"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

@@ -30,16 +30,26 @@ const path = require('path')
 const app = electron.app
 const log = require('electron-log');
 const {dialog} = require('electron');
-const { autoUpdater } = require('electron-updater');
 
+const { autoUpdater } = require('electron-updater')
+autoUpdater.autoDownload = false
 if(require('electron-squirrel-startup')) return;
 
 const newWin = () => {
 	win = new electron.BrowserWindow({
 		icon: path.join(__dirname, 'static/icon.png')
 	});
-	autoUpdater.checkForUpdatesAndNotify();
+
 	win.maximize()
+
+	require('update-electron-app')({
+		host: 'https://github.com/',
+		repo: 'SurtiLainez-dev/actualizaciones-electron',
+		updateInterval: '5 minutes',
+		logger: require('electron-log'),
+		notifyUser: true
+	})
+
 	win.on('closed', () => win = null)
 	if (config.dev) {
 		// Install vue dev tool and open chrome dev tools
@@ -71,13 +81,3 @@ electron.ipcMain.on('app_version', (event) => {
 	log.info('version: '+app.getVersion())
 });
 
-// autoUpdater.on('error', (error) => {
-// 	dialog.showErrorBox('Error: ', error == null ? "unknown" : (error.stack || error).toString())
-// })
-//
-// electron.ipcMain.on('check_updute', ()=>{
-// 	console.log("entro");
-// 	log.info('entro a check1')
-// 	autoUpdater.checkForUpdates();
-// 	log.info('entro a check2')
-// });
