@@ -1,6 +1,6 @@
 {
   "name": "actualizaciones-electron",
-  "version": "1.0.42",
+  "version": "1.0.44",
   "description": "Nuxt + Electron",
   "author": "SurtiLainez-d ev",
   "private": false,
@@ -11,7 +11,9 @@
     },
     "appId": "updateElec",
     "win": {
-      "target": ["nsis"],
+      "target": [
+        "nsis"
+      ],
       "requestedExecutionLevel": "requireAdministrator"
     },
     "nsis": {
@@ -35,6 +37,7 @@
     "publish": "nuxt build && electron-forge publish"
   },
   "dependencies": {
+    "electron-builder-squirrel-windows": "^22.11.5",
     "electron-log": "^4.3.2",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.8",

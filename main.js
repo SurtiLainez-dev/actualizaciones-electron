@@ -1,3 +1,4 @@
+if(require('electron-squirrel-startup')) return;
 /*
 **  Nuxt
 */
