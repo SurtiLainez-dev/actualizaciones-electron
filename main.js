@@ -29,11 +29,7 @@ const electron = require('electron');
 const path = require('path')
 const app = electron.app
 const log = require('electron-log');
-const {dialog} = require('electron');
 
-const { autoUpdater } = require('electron-updater')
-autoUpdater.autoDownload = false
-if(require('electron-squirrel-startup')) return;
 
 const newWin = () => {
 	win = new electron.BrowserWindow({
