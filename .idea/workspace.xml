@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="36d75bf2-f527-4042-a986-2d57faae851d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
       <recent name="C:\Users\willy\WebstormProjects\actualizaciones-electron\installers" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.make">
     <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -107,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.make" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.publish" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="npm.package" />
@@ -126,7 +124,7 @@
       <workItem from="1615585907540" duration="33037000" />
       <workItem from="1616002449637" duration="424000" />
       <workItem from="1622150735761" duration="8649000" />
-      <workItem from="1622216779207" duration="6378000" />
+      <workItem from="1622216779207" duration="7023000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.2">
       <created>1615593176299</created>
@@ -373,14 +371,20 @@
       <option name="project" value="LOCAL" />
       <updated>1622222457071</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="1.0.39">
+      <created>1622223730659</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1622223730659</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.0.11" />
     <MESSAGE value="1.0.12" />
     <MESSAGE value="1.0.13" />
     <MESSAGE value="1.0.133" />
@@ -405,6 +409,7 @@
     <MESSAGE value="1.0.36" />
     <MESSAGE value="1.0.37" />
     <MESSAGE value="1.0.38" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.38" />
+    <MESSAGE value="1.0.39" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.39" />
   </component>
 </project>

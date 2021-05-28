@@ -10,8 +10,6 @@
 			<a href="https://github.com/electron-userland/electron-builder" target="_blank" class="btn btn-secondary">Electron Builder</a>
 		</div>
     {{version}} del sistema
-    <div id="notification" class="hidden"></div>
-    <button @click="check">Buscar update</button>
 	</section>
 </template>
 
